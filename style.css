@@ -89,6 +89,7 @@ nav a.active::after {
   color: #000;
 }
 
+/* HERO SECTION */
 .hero {
   height: 100vh;
   background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
@@ -122,6 +123,7 @@ nav a.active::after {
   overflow: hidden;
 }
 
+/* ABOUT SECTION */
 .about {
   padding: 6rem 3rem;
   background: var(--bg-medium);
@@ -142,7 +144,6 @@ nav a.active::after {
   max-width: 600px;
 }
 
-/* Skills block (replaces previous .skills list styles) */
 .skills {
   max-width: 600px;
   margin-top: 1.25rem;
@@ -189,6 +190,7 @@ nav a.active::after {
   transition: width 0.6s cubic-bezier(.2,.8,.2,1);
 }
 
+/* ACADEMICS */
 .academics {
   padding: 4.5rem 3rem;
   background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
@@ -260,31 +262,7 @@ nav a.active::after {
   margin: 0;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .academics {
-    padding: 3rem 1.5rem;
-  }
-  .academic-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-}
-
-/* Small screens: shrink image and spacing */
-@media (max-width: 768px) {
-  .about {
-    padding: 4rem 1.5rem;
-  }
-  .about img {
-    width: 180px;
-  }
-  .skills {
-    max-width: 100%;
-  }
-}
-
+/* PROJECTS */
 .projects {
   background: #0b1a24;
   padding: 6rem 3rem;
@@ -293,7 +271,7 @@ nav a.active::after {
 .projects h3 {
   font-size: 2rem;
   font-weight: 700;
-  color: #00ffff;
+  color: var(--accent);
   margin-bottom: 3rem;
   text-align: center;
 }
@@ -353,6 +331,7 @@ nav a.active::after {
   color: #00cccc;
 }
 
+/* CONTACT */
 .contact {
   background: #142433;
   color: #fff;
@@ -375,7 +354,55 @@ nav a.active::after {
   margin-inline: auto;
 }
 
-.contact a {
+/* CONTACT LINKS */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-links a i {
+  font-size: 1.2rem;
+}
+
+.contact-links a[aria-label="Facebook"] {
+  background: #1877F2;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(24,119,242,0.18);
+}
+
+.contact-links a[aria-label="Facebook"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(24,119,242,0.3);
+}
+
+.contact-links a[aria-label="Instagram"] {
+  background: radial-gradient(circle at 30% 110%, #fccc63 0%, #fb7b5a 30%, #d6249f 60%, #285AEB 100%);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(214,36,159,0.14);
+}
+
+.contact-links a[aria-label="Instagram"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(214,36,159,0.3);
+}
+
+/* Email button in contact */
+.contact-email a {
+  display: inline-block;
   background: #00ffff;
   color: #000;
   padding: 1rem 2.5rem;
@@ -386,18 +413,20 @@ nav a.active::after {
   box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
 }
 
-.contact a:hover {
+.contact-email a:hover {
   background: #00cccc;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
 }
 
+/* FOOTER */
 footer {
   background: #0b1a24;
   text-align: center;
   padding: 1.5rem;
 }
 
+/* REVEAL ANIMATION */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -408,6 +437,7 @@ footer {
   transform: translateY(0);
 }
 
+/* MEDIA QUERIES */
 @media (max-width: 768px) {
   nav {
     position: absolute;
@@ -427,60 +457,14 @@ footer {
   #menu-btn {
     display: block;
   }
-}
 
-.social-links {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Base style for social links */
-.social-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.45rem 0.9rem;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: 600;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
-}
-
-/* Icon before the label */
-.social-links a::before {
-  content: "";
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Facebook brand color + icon */
-a[aria-label="Facebook"] {
-  background: #1877F2;
-  box-shadow: 0 6px 16px rgba(24,119,242,0.18);
-}
-a[aria-label="Facebook"]::before {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 5 3.657 9.127 8.438 9.878v-6.99H7.898v-2.888h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.463h-1.26c-1.243 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.888h-2.33v6.99C18.343 21.127 22 17 22 12z'/></svg>");
-}
-
-/* Instagram gradient + icon */
-a[aria-label="Instagram"] {
-  background: radial-gradient(circle at 30% 110%, #fccc63 0%, #fb7b5a 30%, #d6249f 60%, #285AEB 100%);
-  box-shadow: 0 6px 16px rgba(214,36,159,0.14);
-}
-a[aria-label="Instagram"]::before {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM18.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/></svg>");
-}
-
-/* Hover effect */
-.social-links a:hover {
-  transform: translateY(-3px);
-  opacity: 0.98;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+  .about {
+    padding: 4rem 1.5rem;
+  }
+  .about img {
+    width: 180px;
+  }
+  .skills {
+    max-width: 100%;
+  }
 }
