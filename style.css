@@ -132,16 +132,33 @@ nav a.active::after {
   justify-content: center;
   align-items: center;
   gap: 3rem;
+  min-height: 100vh;
 }
 
 .about img {
   width: 250px;
   border-radius: 50%;
   border: 4px solid var(--accent);
+  flex-shrink: 0;
 }
 
 .about-text {
   max-width: 600px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h3 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  color: #cfeff0;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 
 .skills {
@@ -190,41 +207,108 @@ nav a.active::after {
   transition: width 0.6s cubic-bezier(.2,.8,.2,1);
 }
 
+.about-socials {
+  margin-top: 2rem;
+}
+
+.about-socials h4 {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.social-links a[aria-label="Facebook"] {
+  background: #1877F2;
+  box-shadow: 0 6px 16px rgba(24,119,242,0.18);
+}
+
+.social-links a[aria-label="Instagram"] {
+  background: radial-gradient(circle at 30% 110%, #fccc63 0%, #fb7b5a 30%, #d6249f 60%, #285AEB 100%);
+  box-shadow: 0 6px 16px rgba(214,36,159,0.14);
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 1.5rem;
+    flex-direction: column;
+    min-height: auto;
+  }
+  .about img {
+    width: 180px;
+  }
+  .about-text h3 {
+    font-size: 2rem;
+  }
+  .skills {
+    max-width: 100%;
+  }
+}
+
 /* ACADEMICS */
 .academics {
-  padding: 4.5rem 3rem;
+  padding: 6rem 3rem;
   background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
   color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .academics-inner {
-  max-width: 1000px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   text-align: left;
 }
 
 .academics h3 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--accent);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .academics-intro {
   color: #cfeff0;
-  margin-bottom: 1.25rem;
+  margin-bottom: 3rem;
   max-width: 720px;
+  font-size: 1.1rem;
 }
 
 .academic-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  width: 100%;
 }
 
 .academic-item {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.04);
-  padding: 1rem 1.25rem;
+  padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.35);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
@@ -239,12 +323,13 @@ nav a.active::after {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .academic-meta h4 {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   color: #fff;
   margin: 0;
 }
@@ -253,13 +338,32 @@ nav a.active::after {
   color: var(--accent);
   font-weight: 700;
   font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .academic-desc {
   color: #c7dfe0;
-  font-size: 0.95rem;
-  line-height: 1.4;
+  font-size: 1rem;
+  line-height: 1.6;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .academics {
+    padding: 4rem 1.5rem;
+    min-height: auto;
+  }
+  .academics h3 {
+    font-size: 2rem;
+  }
+  .academic-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .academic-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* PROJECTS */
